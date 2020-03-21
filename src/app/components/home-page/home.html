@@ -11,7 +11,24 @@
                 <div class="col-12">
                     <div class="row" style="padding: 10px;">
                         <div class="col-md-8">
-                            <input class='col-md-6 home-search-box' placeholder="search by city name">
+                            <input class='col-md-6 home-search-box' placeholder="search by city name"
+                                [matAutocomplete]="auto" (keyup)='onKeyDown($event)'>
+
+                            <!-- search auto complete -->
+                            <mat-autocomplete #auto="matAutocomplete">
+                                <mat-option *ngFor="let option of cityOptions" [value]="option.name">
+                                    <div class="row">
+                                        <div class="col-xs-1">
+                                            <img class='country-image' [src]='option.country_flag_url'
+                                                alt="image not available">
+                                        </div>
+                                        <div class="col-md-10">
+                                            {{option.name}}
+                                        </div>
+                                    </div>
+                                </mat-option>
+                            </mat-autocomplete>
+
                         </div>
                         <div class="col-md-4">
                             <button style="float: left;"> search </button>

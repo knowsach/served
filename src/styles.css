@@ -51,3 +51,8 @@ body {
 ::placeholder{
     color: lightgrey;
 }
+
+.country-image{
+    width: 35px;
+    height: 25px;
+}
