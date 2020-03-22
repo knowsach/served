@@ -10,29 +10,27 @@
                 </div>
                 <div class="col-12">
                     <div class="row" style="padding: 10px;">
-                        <div class="col-md-8">
-                            <input class='col-md-6 home-search-box' placeholder="search by city name"
-                                [matAutocomplete]="auto" (keyup)='onKeyDown($event)' name='search-auto-complete'
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6">
+                            <input class='form-control' placeholder="search by city name" [matAutocomplete]="auto"
+                                (keyup)='onKeyDown($event)' name='search-auto-complete'
                                 [(ngModel)]='autoCompleteSearchResult' [value]='getSearchBoxValue()'>
 
                             <!-- search auto complete -->
-                            <mat-autocomplete #auto="matAutocomplete" >
-                                <mat-option *ngFor="let option of cityOptions" [value]="option" (click)='onCitySelection()'>
+                            <mat-autocomplete #auto="matAutocomplete">
+                                <mat-option *ngFor="let option of cityOptions" [value]="option"
+                                    (click)='onCitySelection()'>
                                     <div class="row">
-                                        <div class="col-xs-1">
-                                            <img class='country-image' [src]='option.country_flag_url'
-                                                alt="image not available">
-                                        </div>
-                                        <div class="col-md-10">
-                                            {{option.name}}
-                                        </div>
+                                        <img class='country-image' [src]='option.country_flag_url'
+                                            alt="image not available">
+                                        <span style='margin-left:15px'> {{option.name}} </span>
                                     </div>
                                 </mat-option>
                             </mat-autocomplete>
 
                         </div>
-                        <div class="col-md-4">
-                            <button style="float: left;"> search </button>
+                        <div class="col-md-3">
+                            <button class='btn btn-light' style="float: left;"> search </button>
                         </div>
                     </div>
                 </div>

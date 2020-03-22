@@ -2,15 +2,15 @@ import { Component } from "@angular/core";
 import { RestaurantServices } from 'src/app/services/restaurant-list.service';
 import { HomeService } from '../home-page/home.service';
 import { Router } from '@angular/router';
-import { Collection } from './restaurant.model';
+import { Collection } from './collection.model';
 
 
 @Component({
     selector: 'Restaurant',
-    templateUrl: './restaurant.html'
+    templateUrl: './collection.html'
 })
 
-export class Restaurant {
+export class CollectionComponent {
 
     locationData: any;
     allAvailableCollection: Collection[] = new Array<Collection>();
@@ -37,9 +37,7 @@ export class Restaurant {
             );
     }
 
-    ngOnInit() {
-
-    }
+    ngOnInit() {}
 
     getAllCollections() {
         this.loader = true;

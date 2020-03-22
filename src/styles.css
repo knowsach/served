@@ -119,6 +119,7 @@ body {
 .country-image {
   width: 35px;
   height: 25px;
+  margin-top: 12px;
 }
 
 .collection-title-label {
