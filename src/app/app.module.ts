@@ -10,17 +10,17 @@ import { CityService } from './services/city/city.service';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule }   from '@angular/forms';
-import { Restaurant } from './components/resaurants/restaurant.component';
 import { RestaurantServices } from './services/restaurant-list.service';
 import { HomeService } from './components/home-page/home.service';
 import { Loader } from './components/loader/loader.component';
+import { CollectionComponent } from './components/collections/collection.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     Home,
-    Restaurant,
+    CollectionComponent,
     Loader
   ],
   imports: [

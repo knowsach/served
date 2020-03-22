@@ -62,6 +62,6 @@ export class Home {
     onCitySelection() {
         this.homeService.updateLocation(this.autoCompleteSearchResult);
         console.log(this.autoCompleteSearchResult);
-        this.router.navigate(['restaurant']);
+        this.router.navigate(['collection']);
     }
 }
