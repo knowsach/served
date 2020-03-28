@@ -6,19 +6,23 @@ import { environment } from 'src/environments/environment';
 export class RestaurantServices {
 
     url = environment.baseUrl;
-    apiKey  = environment.apiKey;
+    apiKey = environment.apiKey;
+
+    option = {
+        headers: new HttpHeaders({
+            'user-key': this.apiKey
+        })
+    }
 
     constructor(
         private http: HttpClient,
     ) { }
 
     getCollections(city_id) {
-        const option = {
-            headers : new HttpHeaders({
-                'user-key': this.apiKey
-            })
-        }
+        return this.http.get(`${this.url}/collections?city_id=${city_id}`, this.option);
+    }
 
-        return this.http.get(`${this.url}/collections?city_id=${city_id}`, option);
+    getRestaurants(city_id, collection_id) {
+        return this.http.get(`${this.url}/search?city_id=${city_id}&collection_id=${collection_id}`, this.option);
     }
 }

@@ -3,10 +3,11 @@ import { RestaurantServices } from 'src/app/services/restaurant-list.service';
 import { HomeService } from '../home-page/home.service';
 import { Router } from '@angular/router';
 import { Collection } from './collection.model';
+import { CollectionService } from './collection.service';
 
 
 @Component({
-    selector: 'Restaurant',
+    selector: 'Collection',
     templateUrl: './collection.html'
 })
 
@@ -14,12 +15,13 @@ export class CollectionComponent {
 
     locationData: any;
     allAvailableCollection: Collection[] = new Array<Collection>();
-    loader : boolean;
+    loader: boolean;
 
     constructor(
         private restaurantService: RestaurantServices,
         private homeService: HomeService,
-        public router: Router
+        public router: Router,
+        private collectionService: CollectionService
     ) {
 
         // this.allAvailableCollection = new Array<Collection>();
@@ -37,7 +39,7 @@ export class CollectionComponent {
             );
     }
 
-    ngOnInit() {}
+    ngOnInit() { }
 
     getAllCollections() {
         this.loader = true;
@@ -45,7 +47,7 @@ export class CollectionComponent {
             .subscribe(
                 res => {
                     this.allAvailableCollection = res['collections'];
-                    console.log('collections:', res, this.allAvailableCollection, this.allAvailableCollection[0]['collection'].title)
+                    console.log('collections:', res, this.allAvailableCollection)
                     this.loader = false;
                 },
                 err => {
@@ -57,5 +59,11 @@ export class CollectionComponent {
 
     getImageSrc(collection) {
         return collection['collection'].image_url;
+    }
+
+    onCollectionSelect(collection) {
+        console.log('collection:', collection);
+        this.collectionService.updateCollection(collection['collection'].collection_id, this.locationData.id);
+        this.router.navigate(['restaurants']);
     }
 }
