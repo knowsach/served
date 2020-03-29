@@ -76,7 +76,6 @@ body {
   background: #f3f3f3;
 }
 
-
 .custom-container {
   /* height: 60vh; */
   height: 400px;
@@ -127,6 +126,29 @@ body {
   font-weight: 500;
 }
 
-.res-feat-label{
+.res-feat-label {
   font-size: 13px;
+}
+
+.ellipsis-text {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.menu-btn {
+  width: 100%;
+  border-radius: 2px;
+  border: 1px solid lightgray;
+  color: #6e6d6d;
+  background: #fff;
+  font-weight: 500;
+}
+.order-btn {
+  width: 100%;
+  border-radius: 2px;
+  border: 1px solid #28a745;
+  background-color: #28a745;
+  color: #fff;
+  font-weight: 500;
 }
