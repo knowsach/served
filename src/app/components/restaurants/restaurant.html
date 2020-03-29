@@ -1,11 +1,12 @@
 <Loader *ngIf='loader'></Loader>
 
 <div class="container">
-    <div class="row" style="margin-top: 10px !important;" *ngFor='let res of restaurantsList'>
+    <div class="row justify-content-around">
 
-        <div class="col-md-2"></div>
+        <!-- <div class="col-md-2"></div> -->
 
-        <div class="col-md-8 card shadow card-bordered card-hover" >
+        <div class="col-md-5 card shadow card-bordered card-hover" *ngFor='let res of restaurantsList'
+            style="margin-top: 10px !important;">
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-4 text-center">
@@ -13,20 +14,34 @@
                     </div>
                     <div class="col-md-8">
                         <div class="row">
-                            <div class="col-11">
+                            <div class="col-10">
                                 <label class='collection-title-label'> {{res['restaurant'].name}} </label>
                             </div>
-                            <div class="col-md-1 badge badge-success" style="height: 22px;">
+                            <div class="col-xs-1 badge badge-success" style="height: 22px; background: #c4c400; margin-top: 5px;">
                                 {{res['restaurant'].user_rating.aggregate_rating}}
                             </div>
-                            <div class="col-12">
+                            <div class="col-12 ellipsis-text">
                                 <span class="res-feat-label"> CUISINES : {{res['restaurant'].cuisines}} </span>
                             </div>
-                            <div class="col-12">
-                                <span class="res-feat-label"> COST FOR TWO: {{res['restaurant'].currency}}  {{res['restaurant'].average_cost_for_two}} </span>
+                            <div class="col-12 ellipsis-text">
+                                <span class="res-feat-label"> COST FOR TWO: {{res['restaurant'].currency}}
+                                    {{res['restaurant'].average_cost_for_two}} </span>
                             </div>
-                            <div class="col-12">
+                            <div class="col-12 ellipsis-text">
                                 <span class="res-feat-label"> HOURS : {{res['restaurant'].timings}} </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12" style="padding-top: 15px;">
+                        <div class="row">
+                            <div class="col-md-6" style="padding: 0 !important; margin: 0 !important;">
+                                <a href="{{res['restaurant'].url}}" target="_blank"> <button class="menu-btn"> View Menu
+                                    </button> </a>
+                            </div>
+                            <div class="col-md-6" style="padding: 0 !important; margin: 0 !important;">
+                                <a href="{{res['restaurant'].url}}" target="_blank"> <button class="order-btn"
+                                        style="background-color: #28a745;"> Order </button> </a>
                             </div>
                         </div>
                     </div>
@@ -35,6 +50,6 @@
             </div>
         </div>
 
-        <div class="col-md-2"></div>
+        <!-- <div class="col-md-2"></div> -->
     </div>
 </div>
